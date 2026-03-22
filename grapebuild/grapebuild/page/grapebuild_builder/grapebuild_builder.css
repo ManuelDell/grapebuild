@@ -1,0 +1,25 @@
+#gb-editor-wrap {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+}
+
+#gb-editor-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: #f4f5f6;
+    border-bottom: 1px solid #d1d8dd;
+    flex-shrink: 0;
+    gap: 6px;
+}
+
+#gjs {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* GrapesJS overrides für Frappe */
+.gjs-editor {
+    font-family: inherit;
+}

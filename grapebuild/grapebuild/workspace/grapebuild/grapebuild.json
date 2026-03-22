@@ -1,0 +1,42 @@
+{
+ "charts": [],
+ "creation": "2026-03-22 00:00:00.000000",
+ "doctype": "Workspace",
+ "icon": "/assets/grapebuild/images/grapebuild-icon.svg",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "GrapeBuild",
+ "links": [],
+ "modified": "2026-03-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "GrapeBuild",
+ "name": "GrapeBuild",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "shortcuts": [
+  {
+   "color": "Yellow",
+   "format": "",
+   "label": "Seiten-Hub",
+   "link_to": "/grapebuild/hub",
+   "type": "URL"
+  },
+  {
+   "color": "Yellow",
+   "format": "",
+   "label": "Neuer Editor",
+   "link_to": "/grapebuild/hub",
+   "type": "URL"
+  },
+  {
+   "color": "Grey",
+   "label": "Site Settings",
+   "link_to": "GrapeBuild Site Settings",
+   "type": "DocType"
+  }
+ ],
+ "title": "GrapeBuild"
+}

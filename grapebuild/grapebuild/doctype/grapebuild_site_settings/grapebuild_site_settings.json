@@ -1,0 +1,238 @@
+{
+ "actions": [],
+ "creation": "2026-03-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tab_general",
+  "site_name",
+  "base_url",
+  "site_language",
+  "favicon",
+  "logo",
+  "tab_design",
+  "primary_color",
+  "secondary_color",
+  "accent_color",
+  "default_font",
+  "heading_font",
+  "border_radius",
+  "tab_seo",
+  "meta_description_default",
+  "google_analytics_id",
+  "google_tag_manager",
+  "head_scripts",
+  "body_scripts",
+  "tab_access",
+  "default_access_type",
+  "login_page",
+  "logout_redirect",
+  "allow_registration",
+  "registration_role",
+  "tab_advanced",
+  "maintenance_mode",
+  "maintenance_message",
+  "robots_txt",
+  "sitemap_enabled",
+  "custom_404_page"
+ ],
+ "fields": [
+  {
+   "fieldname": "tab_general",
+   "fieldtype": "Tab Break",
+   "label": "Allgemein"
+  },
+  {
+   "fieldname": "site_name",
+   "fieldtype": "Data",
+   "label": "Site Name"
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Base URL",
+   "description": "z.B. https://diedells.de"
+  },
+  {
+   "fieldname": "site_language",
+   "fieldtype": "Select",
+   "label": "Site Language",
+   "options": "de\nen\nfr\nes\nit\npl\nnl",
+   "default": "de"
+  },
+  {
+   "fieldname": "favicon",
+   "fieldtype": "Attach Image",
+   "label": "Favicon"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "tab_design",
+   "fieldtype": "Tab Break",
+   "label": "Design-Tokens"
+  },
+  {
+   "fieldname": "primary_color",
+   "fieldtype": "Color",
+   "label": "Primary Color"
+  },
+  {
+   "fieldname": "secondary_color",
+   "fieldtype": "Color",
+   "label": "Secondary Color"
+  },
+  {
+   "fieldname": "accent_color",
+   "fieldtype": "Color",
+   "label": "Accent Color"
+  },
+  {
+   "fieldname": "default_font",
+   "fieldtype": "Data",
+   "label": "Default Font",
+   "description": "Google Fonts Name, z.B. Inter"
+  },
+  {
+   "fieldname": "heading_font",
+   "fieldtype": "Data",
+   "label": "Heading Font"
+  },
+  {
+   "fieldname": "border_radius",
+   "fieldtype": "Data",
+   "label": "Border Radius",
+   "description": "z.B. 8px"
+  },
+  {
+   "fieldname": "tab_seo",
+   "fieldtype": "Tab Break",
+   "label": "SEO & Analytics"
+  },
+  {
+   "fieldname": "meta_description_default",
+   "fieldtype": "Small Text",
+   "label": "Default Meta Description"
+  },
+  {
+   "fieldname": "google_analytics_id",
+   "fieldtype": "Data",
+   "label": "Google Analytics ID"
+  },
+  {
+   "fieldname": "google_tag_manager",
+   "fieldtype": "Data",
+   "label": "Google Tag Manager ID"
+  },
+  {
+   "fieldname": "head_scripts",
+   "fieldtype": "Long Text",
+   "label": "Head Scripts",
+   "description": "Beliebiges <head>-HTML (kein Sanitizer)"
+  },
+  {
+   "fieldname": "body_scripts",
+   "fieldtype": "Long Text",
+   "label": "Body Scripts",
+   "description": "Vor </body>"
+  },
+  {
+   "fieldname": "tab_access",
+   "fieldtype": "Tab Break",
+   "label": "Zugang"
+  },
+  {
+   "fieldname": "default_access_type",
+   "fieldtype": "Select",
+   "label": "Default Access Type",
+   "options": "public\nfrappe_login",
+   "default": "public"
+  },
+  {
+   "fieldname": "login_page",
+   "fieldtype": "Link",
+   "label": "Login Page",
+   "options": "GrapeBuild Page"
+  },
+  {
+   "fieldname": "logout_redirect",
+   "fieldtype": "Data",
+   "label": "Logout Redirect URL"
+  },
+  {
+   "fieldname": "allow_registration",
+   "fieldtype": "Check",
+   "label": "Allow Registration"
+  },
+  {
+   "fieldname": "registration_role",
+   "fieldtype": "Link",
+   "label": "Registration Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "tab_advanced",
+   "fieldtype": "Tab Break",
+   "label": "Erweitert"
+  },
+  {
+   "fieldname": "maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode"
+  },
+  {
+   "fieldname": "maintenance_message",
+   "fieldtype": "Small Text",
+   "label": "Maintenance Message"
+  },
+  {
+   "fieldname": "robots_txt",
+   "fieldtype": "Long Text",
+   "label": "robots.txt Content"
+  },
+  {
+   "fieldname": "sitemap_enabled",
+   "fieldtype": "Check",
+   "label": "Sitemap Enabled",
+   "default": 1
+  },
+  {
+   "fieldname": "custom_404_page",
+   "fieldtype": "Link",
+   "label": "Custom 404 Page",
+   "options": "GrapeBuild Page"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "GrapeBuild",
+ "name": "GrapeBuild Site Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Website Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,248 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:page_title",
+ "creation": "2026-03-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "page_title",
+  "slug",
+  "page_type",
+  "section_meta",
+  "meta_description",
+  "meta_keywords",
+  "section_editor",
+  "gjs_data",
+  "rendered_html",
+  "rendered_css",
+  "section_publish",
+  "published",
+  "published_on",
+  "maintenance_mode",
+  "section_script",
+  "page_script",
+  "page_head_html",
+  "section_access",
+  "access_type",
+  "access_password",
+  "access_roles",
+  "login_page",
+  "redirect_after_login",
+  "section_misc",
+  "thumbnail",
+  "canvas_site",
+  "dynamic_render_mode"
+ ],
+ "fields": [
+  {
+   "fieldname": "page_title",
+   "fieldtype": "Data",
+   "label": "Page Title",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "slug",
+   "fieldtype": "Data",
+   "label": "Slug",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "URL-Pfad: /meine-seite"
+  },
+  {
+   "fieldname": "page_type",
+   "fieldtype": "Select",
+   "label": "Page Type",
+   "options": "Page\nLanding\nBlog\nCustom",
+   "default": "Page",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_meta",
+   "fieldtype": "Section Break",
+   "label": "SEO & Meta"
+  },
+  {
+   "fieldname": "meta_description",
+   "fieldtype": "Small Text",
+   "label": "Meta Description"
+  },
+  {
+   "fieldname": "meta_keywords",
+   "fieldtype": "Small Text",
+   "label": "Meta Keywords"
+  },
+  {
+   "fieldname": "section_editor",
+   "fieldtype": "Section Break",
+   "label": "Editor Data"
+  },
+  {
+   "fieldname": "gjs_data",
+   "fieldtype": "Long Text",
+   "label": "GrapesJS Data",
+   "hidden": 1,
+   "description": "GrapesJS Project JSON (vollständiger Editor-State)"
+  },
+  {
+   "fieldname": "rendered_html",
+   "fieldtype": "Long Text",
+   "label": "Rendered HTML",
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rendered_css",
+   "fieldtype": "Long Text",
+   "label": "Rendered CSS",
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_publish",
+   "fieldtype": "Section Break",
+   "label": "Publishing"
+  },
+  {
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "published_on",
+   "fieldtype": "Datetime",
+   "label": "Published On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode",
+   "in_list_view": 0
+  },
+  {
+   "fieldname": "section_script",
+   "fieldtype": "Section Break",
+   "label": "Scripts",
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:frappe.user_roles.includes('Website Developer')"
+  },
+  {
+   "fieldname": "page_script",
+   "fieldtype": "Long Text",
+   "label": "Page Script",
+   "description": "Custom JS pro Seite (nur Website Developer)"
+  },
+  {
+   "fieldname": "page_head_html",
+   "fieldtype": "Small Text",
+   "label": "Additional Head HTML",
+   "description": "Zusätzliches <head> HTML (canonical etc.)"
+  },
+  {
+   "fieldname": "section_access",
+   "fieldtype": "Section Break",
+   "label": "Access Control"
+  },
+  {
+   "fieldname": "access_type",
+   "fieldtype": "Select",
+   "label": "Access Type",
+   "options": "public\npassword\nfrappe_login\ncustom_login",
+   "default": "public"
+  },
+  {
+   "fieldname": "access_password",
+   "fieldtype": "Password",
+   "label": "Access Password",
+   "depends_on": "eval:doc.access_type == 'password'"
+  },
+  {
+   "fieldname": "access_roles",
+   "fieldtype": "Table",
+   "label": "Access Roles",
+   "options": "GrapeBuild Page Role"
+  },
+  {
+   "fieldname": "login_page",
+   "fieldtype": "Link",
+   "label": "Login Page",
+   "options": "GrapeBuild Page",
+   "depends_on": "eval:doc.access_type != 'public'"
+  },
+  {
+   "fieldname": "redirect_after_login",
+   "fieldtype": "Link",
+   "label": "Redirect After Login",
+   "options": "GrapeBuild Page"
+  },
+  {
+   "fieldname": "section_misc",
+   "fieldtype": "Section Break",
+   "label": "Misc",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "thumbnail",
+   "fieldtype": "Attach Image",
+   "label": "Thumbnail"
+  },
+  {
+   "fieldname": "canvas_site",
+   "fieldtype": "Link",
+   "label": "Canvas Site",
+   "options": "GrapeBuild Site Settings"
+  },
+  {
+   "fieldname": "dynamic_render_mode",
+   "fieldtype": "Select",
+   "label": "Dynamic Render Mode",
+   "options": "client_side\nserver_side\nhybrid",
+   "default": "client_side"
+  }
+ ],
+ "has_web_view": 0,
+ "links": [],
+ "modified": "2026-03-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "GrapeBuild",
+ "name": "GrapeBuild Page",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Website Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

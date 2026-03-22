@@ -1,0 +1,293 @@
+/* ================================================================
+   GrapeBuild Editor — layout via position:absolute
+   Toolbar (52px) + 3-column canvas area below
+   ================================================================ */
+
+/* ===== Reset for editor page ===== */
+.gb-www-body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ===== App shell ===== */
+.gb-editor-app {
+  /* Just a marker — actual layout is done with position:fixed on each child */
+}
+
+/* ===== Toolbar — fixed, full width, 52px tall ===== */
+.gb-editor-toolbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 52px;
+  background: #1e2023;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  gap: 8px;
+  border-bottom: 1px solid #2e3035;
+  z-index: 200;
+}
+.gb-editor-toolbar__left,
+.gb-editor-toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.gb-editor-toolbar__right { justify-content: flex-end; }
+.gb-editor-toolbar__center { display: flex; align-items: center; gap: 4px; }
+.gb-editor-toolbar__logo   { width: 24px; height: 24px; }
+.gb-editor-toolbar__page-title {
+  color: #e5e7eb;
+  font-size: 13px;
+  font-weight: 500;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Dark toolbar buttons */
+.gb-editor-toolbar .gb-btn--ghost {
+  color: #d1d5db;
+  border-color: #374151;
+  background: transparent;
+}
+.gb-editor-toolbar .gb-btn--ghost:hover { background: #2d3139; color: #f9fafb; }
+.gb-editor-toolbar .gb-btn--primary     { background: #F2AF0D; border-color: #F2AF0D; color: #000; }
+.gb-editor-toolbar .gb-btn--primary:hover { background: #d4960a; border-color: #d4960a; }
+.gb-editor-toolbar .gb-btn--danger      { background: #ef4444; border-color: #ef4444; color: #fff; }
+.gb-editor-toolbar .gb-btn--danger:hover { background: #dc2626; }
+.gb-editor-toolbar .gb-btn--warning     { background: #f59e0b; border-color: #f59e0b; color: #000; }
+
+/* Device buttons */
+.gb-device-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #6b7280;
+  border-radius: 4px;
+  padding: 5px 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all .15s;
+}
+.gb-device-btn:hover           { color: #d1d5db; background: #2d3139; }
+.gb-device-btn--active         { color: #F2AF0D !important; border-color: #F2AF0D !important; }
+
+.gb-status-text {
+  font-size: 12px;
+  color: #6b7280;
+  min-width: 80px;
+  text-align: right;
+}
+
+/* ===== 3-column layout — all position:fixed, no parent dependency ===== */
+
+/* #gb-layout is just a DOM wrapper, no layout role */
+#gb-layout { display: contents; }
+
+/* --- Left sidebar: fixed, 260px, below toolbar --- */
+#gb-left {
+  position: fixed;
+  top: 52px; left: 0; bottom: 0;
+  width: 260px;
+  background: #1e2023;
+  border-right: 1px solid #2e3035;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* --- Canvas: fixed, between the two sidebars --- */
+#gjs {
+  position: fixed;
+  top: 52px;
+  left: 260px;
+  right: 260px;
+  bottom: 0;
+  overflow: hidden;
+}
+
+/* --- Right sidebar: fixed, 260px, below toolbar --- */
+#gb-right {
+  position: fixed;
+  top: 52px; right: 0; bottom: 0;
+  width: 260px;
+  background: #1e2023;
+  border-left: 1px solid #2e3035;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* ===== Panel tabs ===== */
+.gb-ptabs {
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 1px solid #2e3035;
+}
+.gb-ptab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 6px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color .15s, background .15s;
+}
+.gb-ptab:hover            { color: #d1d5db; background: #262930; }
+.gb-ptab--active          { color: #F2AF0D; border-bottom-color: #F2AF0D; }
+
+/* Panel content panes */
+.gb-pane {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+
+/* ================================================================
+   GrapesJS internal overrides
+   ================================================================ */
+
+/* Editor fills #gjs exactly */
+#gjs .gjs-editor {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Hide the empty internal panels bar (we use our own sidebars) */
+#gjs .gjs-pn-panels { display: none !important; }
+
+/* Canvas fills the full #gjs area */
+#gjs .gjs-editor-cont { height: 100%; }
+#gjs .gjs-cv-canvas {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #e8eaed;
+}
+
+/* Toolbar on selected element */
+.gjs-toolbar         { background: #F2AF0D; border-radius: 3px; }
+.gjs-toolbar-item svg { color: #000; }
+.gjs-badge           { background: #F2AF0D; color: #000; }
+
+/* ===== Block manager (rendered in #gb-blocks) ===== */
+#gb-blocks .gjs-block-categories { width: 100%; }
+#gb-blocks .gjs-block-category   { border-bottom: 1px solid #2e3035; }
+
+#gb-blocks .gjs-block-category .gjs-title,
+#gb-blocks .gjs-block-category__title {
+  background: #262930 !important;
+  color: #9ca3af !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  padding: 8px 12px !important;
+  cursor: pointer !important;
+  user-select: none;
+}
+
+#gb-blocks .gjs-blocks-c {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#gb-blocks .gjs-block {
+  border: 1px solid #374151 !important;
+  background: #2d3139 !important;
+  color: #d1d5db !important;
+  border-radius: 6px !important;
+  padding: 10px 4px !important;
+  font-size: 11px !important;
+  text-align: center !important;
+  cursor: grab !important;
+  width: auto !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  min-height: 50px !important;
+  box-sizing: border-box !important;
+  transition: background .15s, border-color .15s;
+}
+#gb-blocks .gjs-block:hover {
+  background: #374151 !important;
+  border-color: #4b5563 !important;
+}
+#gb-blocks .gjs-block__label { font-size: 11px; line-height: 1.3; }
+#gb-blocks .gjs-block__media { margin: 0; }
+
+/* ===== Style manager (rendered in #gb-styles) ===== */
+#gb-styles .gjs-sm-sectors   { width: 100%; }
+#gb-styles .gjs-sm-sector    { border-bottom: 1px solid #2e3035; }
+
+#gb-styles .gjs-sm-sector .gjs-title,
+#gb-styles .gjs-sm-sector__title {
+  background: #262930 !important;
+  color: #9ca3af !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  padding: 8px 12px !important;
+  cursor: pointer !important;
+}
+
+#gb-styles .gjs-sm-properties { padding: 8px 10px; }
+#gb-styles .gjs-sm-property   { margin-bottom: 6px; }
+#gb-styles .gjs-sm-property__label { color: #9ca3af; font-size: 11px; margin-bottom: 2px; display: block; }
+#gb-styles .gjs-sm-property input,
+#gb-styles .gjs-sm-property select {
+  background: #2d3139;
+  border: 1px solid #374151;
+  color: #e5e7eb;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Layer manager (rendered in #gb-layers) ===== */
+#gb-layers .gjs-layer        { background: #1e2023; color: #d1d5db; font-size: 12px; }
+#gb-layers .gjs-layer.gjs-selected { background: #2d3139; }
+#gb-layers .gjs-layer__name  { color: #d1d5db; }
+#gb-layers .gjs-layer-count  { color: #6b7280; font-size: 10px; }
+
+/* ===== Trait manager (rendered in #gb-traits) ===== */
+#gb-traits .gjs-trt-traits   { padding: 8px 10px; }
+#gb-traits .gjs-trt-trait    { margin-bottom: 8px; }
+#gb-traits .gjs-field        { background: #2d3139; border: 1px solid #374151; border-radius: 4px; }
+#gb-traits .gjs-field input,
+#gb-traits .gjs-field select {
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  font-size: 12px;
+  padding: 4px 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+#gb-traits .gjs-trt-trait__label { color: #9ca3af; font-size: 11px; margin-bottom: 3px; display: block; }

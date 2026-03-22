@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:block_name",
+ "creation": "2026-03-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "block_name",
+  "block_label",
+  "block_category",
+  "block_icon",
+  "is_active",
+  "section_content",
+  "gjs_component",
+  "preview_html",
+  "section_dynamic",
+  "is_dynamic",
+  "source_doctype",
+  "fields_mapping",
+  "default_filters",
+  "order_by",
+  "max_records"
+ ],
+ "fields": [
+  {
+   "fieldname": "block_name",
+   "fieldtype": "Data",
+   "label": "Block Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "block_label",
+   "fieldtype": "Data",
+   "label": "Block Label",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "block_category",
+   "fieldtype": "Select",
+   "label": "Block Category",
+   "options": "Layout\nContent\nDynamic\nForm\nNavigation\nCustom",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "block_icon",
+   "fieldtype": "Data",
+   "label": "Block Icon"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_content",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "gjs_component",
+   "fieldtype": "Long Text",
+   "label": "GrapesJS Component JSON"
+  },
+  {
+   "fieldname": "preview_html",
+   "fieldtype": "Long Text",
+   "label": "Preview HTML"
+  },
+  {
+   "fieldname": "section_dynamic",
+   "fieldtype": "Section Break",
+   "label": "Dynamic Block Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "is_dynamic",
+   "fieldtype": "Check",
+   "label": "Is Dynamic"
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Link",
+   "label": "Source DocType",
+   "options": "DocType",
+   "depends_on": "eval:doc.is_dynamic"
+  },
+  {
+   "fieldname": "fields_mapping",
+   "fieldtype": "Long Text",
+   "label": "Fields Mapping (JSON)",
+   "depends_on": "eval:doc.is_dynamic"
+  },
+  {
+   "fieldname": "default_filters",
+   "fieldtype": "Long Text",
+   "label": "Default Filters (JSON)",
+   "depends_on": "eval:doc.is_dynamic"
+  },
+  {
+   "fieldname": "order_by",
+   "fieldtype": "Data",
+   "label": "Order By",
+   "depends_on": "eval:doc.is_dynamic"
+  },
+  {
+   "fieldname": "max_records",
+   "fieldtype": "Int",
+   "label": "Max Records",
+   "default": 10,
+   "depends_on": "eval:doc.is_dynamic"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "GrapeBuild",
+ "name": "GrapeBuild Block Template",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Website Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

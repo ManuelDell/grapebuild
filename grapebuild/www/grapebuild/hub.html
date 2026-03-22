@@ -1,0 +1,113 @@
+{% extends "grapebuild/templates/grapebuild_base.html" %}
+
+{% block title %}GrapeBuild Hub{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/assets/grapebuild/css/grapebuild-www.css">
+{% endblock %}
+
+{% block body %}
+<div class="gb-app" id="gb-hub-app">
+
+  <nav class="gb-nav">
+    <a class="gb-nav__logo" href="/grapebuild/hub">
+      <img src="/assets/grapebuild/images/grapebuild-icon.svg" alt="GrapeBuild" class="gb-nav__icon">
+      <span class="gb-nav__title">GrapeBuild</span>
+    </a>
+    <div class="gb-nav__actions">
+      <span class="gb-nav__user">{{ user }}</span>
+      <a href="/me" class="gb-btn gb-btn--ghost gb-btn--sm">Profil</a>
+    </div>
+  </nav>
+
+  <main class="gb-main">
+    <div class="gb-hub-header">
+      <div>
+        <h1 class="gb-hub-header__title">Seiten</h1>
+        <p class="gb-hub-header__subtitle">Alle Seiten deiner Website</p>
+      </div>
+      <button class="gb-btn gb-btn--primary" id="gb-btn-new">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Neue Seite
+      </button>
+    </div>
+
+    <div class="gb-hub-toolbar">
+      <div class="gb-search-wrap">
+        <svg class="gb-search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="gb-search" class="gb-search" placeholder="Seiten suchen…">
+      </div>
+      <div class="gb-filter-tabs" id="gb-filters">
+        <button class="gb-filter-tab gb-filter-tab--active" data-filter="all">Alle</button>
+        <button class="gb-filter-tab" data-filter="published">Veröffentlicht</button>
+        <button class="gb-filter-tab" data-filter="draft">Entwürfe</button>
+      </div>
+    </div>
+
+    <div class="gb-pages-wrap">
+      <table class="gb-table" id="gb-table">
+        <thead>
+          <tr>
+            <th>Titel</th>
+            <th>Slug</th>
+            <th>Typ</th>
+            <th>Status</th>
+            <th>Geändert</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="gb-pages-body">
+          <tr class="gb-table__loading">
+            <td colspan="6">
+              <div class="gb-spinner"></div>
+              <span>Lade Seiten…</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</div>
+
+<!-- Neues Seite Modal -->
+<div class="gb-modal-backdrop" id="gb-modal-backdrop" hidden>
+  <div class="gb-modal">
+    <div class="gb-modal__header">
+      <h2 class="gb-modal__title">Neue Seite erstellen</h2>
+      <button class="gb-modal__close" id="gb-modal-close">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="gb-modal__body">
+      <div class="gb-field">
+        <label class="gb-label" for="modal-title">Seitentitel <span class="gb-required">*</span></label>
+        <input type="text" id="modal-title" class="gb-input" placeholder="z.B. Startseite" autofocus>
+      </div>
+      <div class="gb-field">
+        <label class="gb-label" for="modal-slug">URL-Slug</label>
+        <div class="gb-input-prefix-wrap">
+          <span class="gb-input-prefix">/</span>
+          <input type="text" id="modal-slug" class="gb-input gb-input--prefixed" placeholder="startseite (automatisch)">
+        </div>
+        <p class="gb-hint">Leer lassen = automatisch aus Titel generiert</p>
+      </div>
+      <div class="gb-field">
+        <label class="gb-label" for="modal-type">Seitentyp</label>
+        <select id="modal-type" class="gb-select">
+          <option value="Page">Seite</option>
+          <option value="Landing">Landing Page</option>
+          <option value="Blog">Blog</option>
+          <option value="Custom">Custom</option>
+        </select>
+      </div>
+    </div>
+    <div class="gb-modal__footer">
+      <button class="gb-btn gb-btn--ghost" id="gb-modal-cancel">Abbrechen</button>
+      <button class="gb-btn gb-btn--primary" id="gb-modal-create">Erstellen &amp; Bearbeiten</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/grapebuild/js/grapebuild-hub-www.js"></script>
+{% endblock %}

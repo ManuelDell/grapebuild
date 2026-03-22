@@ -1,0 +1,41 @@
+<div class="gb-hub">
+  <div class="gb-hub__header page-head">
+    <div class="page-head-content">
+      <h1 class="page-title">GrapeBuild Hub</h1>
+    </div>
+    <div class="page-head-actions">
+      <button class="btn btn-primary btn-sm" id="gb-btn-new-page">
+        <i class="fa fa-plus"></i> Neue Seite
+      </button>
+    </div>
+  </div>
+
+  <div class="gb-hub__filters" style="margin-bottom:1rem;">
+    <div class="input-group input-group-sm" style="max-width:300px;display:inline-flex;">
+      <input type="text" id="gb-search" class="form-control" placeholder="Seiten suchen…">
+    </div>
+    <div class="btn-group btn-group-sm" style="margin-left:0.5rem;" id="gb-filter-btns">
+      <button class="btn btn-default active" data-filter="all">Alle</button>
+      <button class="btn btn-default" data-filter="published">Veröffentlicht</button>
+      <button class="btn btn-default" data-filter="draft">Entwürfe</button>
+    </div>
+  </div>
+
+  <div class="gb-hub__table-wrap">
+    <table class="table table-bordered" id="gb-pages-table">
+      <thead>
+        <tr>
+          <th>Titel</th>
+          <th>Slug</th>
+          <th>Typ</th>
+          <th>Status</th>
+          <th>Geändert</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody id="gb-pages-body">
+        <tr><td colspan="6" class="text-center text-muted">Lade…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

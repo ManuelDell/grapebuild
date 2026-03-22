@@ -1,0 +1,23 @@
+.gb-hub__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.gb-badge-published {
+    background: #28a745;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+.gb-badge-draft {
+    background: #6c757d;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+.gb-filter-btns .btn.active {
+    font-weight: bold;
+}
