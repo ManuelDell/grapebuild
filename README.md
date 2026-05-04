@@ -17,6 +17,9 @@
 
 ## Was ist GrapeBuild?
 
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/manueldell)
+
+
 GrapeBuild ist ein visueller Website-Baukasten, der direkt in **Frappe / ERPNext** integriert ist.
 
 Stell dir vor: Du verwaltest deine Organisation, deine Gemeinde oder dein Unternehmen schon in Frappe — und kannst dort auch ganz einfach eine eigene Webseite zusammenbauen. Keine externe Agentur, kein WordPress, kein Einloggen in ein zweites System. Seiten anlegen, Inhalte per Drag & Drop zusammenstellen, veröffentlichen — fertig.
